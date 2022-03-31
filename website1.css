@@ -344,6 +344,7 @@ ul{
         width: 100%;
         overflow: hidden;
         transition: max-height 0.5s;
+        z-index: 10;
     }
     
     nav ul li{
