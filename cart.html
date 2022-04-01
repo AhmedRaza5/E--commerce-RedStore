@@ -16,6 +16,13 @@
 </head>
 
 <body>
+    <!-- Loader -->
+    <div class="fullpage-loader">
+        <div class="fullpage-loader__logo">
+            <img src="https://svgshare.com/i/TGi.svg" alt="Loader-image">
+        </div>
+    </div>
+    <!-- Loader-End -->
 
     <div class="container">
         <div class="navbar">
@@ -34,7 +41,8 @@
 
             <a href="./cart.html"><img src="./cart.png" style="width: 30px; height: 30px;" alt="Cart-image"></a>
             <img src="./menu.png" alt="menu-image" class="menu-icon" id="bars" onclick="menutoggle()">
-            <i class="fa fa-close" id="close" style="display: none; font-size: 34px; margin-left: 20px;" onclick="menutoggle()"></i>
+            <i class="fa fa-close" id="close" style="display: none; font-size: 34px; margin-left: 20px;"
+                onclick="menutoggle()"></i>
         </div>
         <div class="row">
         </div>
@@ -157,7 +165,7 @@
         </div>
     </div>
 
-   <!-- js for toggle menu -->
+    <!-- js for toggle menu -->
     <script>
         var MenuItems = document.getElementById("MenuItems");
         var bar = document.getElementById("bars");
@@ -183,7 +191,24 @@
         }
 
     </script>
+    <!-- Loader-JS -->
+    <script>
+        const loaderEl = document.getElementsByClassName('fullpage-loader')[0];
+        document.addEventListener('readystatechange', (event) => {
+            // const readyState = "interactive";
+            const readyState = "complete";
 
+            if (document.readyState == readyState) {
+                // when document ready add lass to fadeout loader
+                loaderEl.classList.add('fullpage-loader--invisible');
+
+                // when loader is invisible remove it from the DOM
+                setTimeout(() => {
+                    loaderEl.parentNode.removeChild(loaderEl);
+                }, 2000)
+            }
+        });
+    </script>
 </body>
 
 </html>
